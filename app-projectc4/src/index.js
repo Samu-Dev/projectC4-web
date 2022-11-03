@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { PiePagina } from './Componentes/PiePagina';
+import { Navegacion } from './Componentes/Navegacion';
+import { Encabezado } from './Componentes/Encabezado';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    
+    <Encabezado />
+    <Navegacion enlace1="Inicio" enlace2="Crear Articulo" enlace3="Iniciar Sesión" enlace4="Crear Usuario"/>
+
     <PiePagina/>
   </React.StrictMode>
 );
