@@ -31,29 +31,32 @@ class CrearReceta extends Component{
     render(){
         return(
             <div className="card w-50 m-auto mt-4 mb-4 border-primary">
-                <h1 className="m-auto text-dark mt-3">Nuevo Artículo</h1>
+                <h1 className="m-auto text-dark mt-3">Nueva Receta</h1>
                 <form className="card-body">
                     <div className="form-group">
-                        <input type="text" placeholder="Nombre Artículo" name="nombre" onChange={this.cambio} className="form-control"/>   
+                        <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control"/>   
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="Descripción Artículo" name="descripcion" className="form-control mt-3" onChange={this.cambio}/>   
+                        <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
                     <div className="form-group">
-                        <input type="number" placeholder="Cantidad" name="cantidad" className="form-control mt-3" onChange={this.cambio}/>   
+                        <input type="number" placeholder="Porciones" name="porciones" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="Usuario" name="usuario" className="form-control mt-3" onChange={this.cambio}/>   
+                        <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="Imagen Articulo" name="imagen" className="form-control mt-3" onChange={this.cambio}/>   
+                        <input type="text" placeholder="Creador" name="usuario" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
-                    <h5 className="text-dark mt-2 ms-2">Valor</h5>
                     <div className="form-group">
-                        <select name="valor" className="form-control mt-3" onChange={this.cambio}>
-                            <option>Alto</option>
-                            <option>Medio</option>
-                            <option>Bajo</option>
+                        <input type="text" placeholder="Imagen Plato" name="imagen" className="form-control mt-3" onChange={this.cambio}/>   
+                    </div>
+                    <h5 className="text-dark mt-2 ms-2">CATEGORIA</h5>
+                    <div className="form-group">
+                        <select name="Categoría" className="form-control mt-3" onChange={this.cambio}>
+                            <option>Entrada</option>
+                            <option>Plato Fuerte</option>
+                            <option>Postre</option>
                         </select>
                     </div>
                     <div className="d-grid gap-2 col-3 mx-auto mt-3">

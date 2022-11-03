@@ -2,10 +2,17 @@
     {
         "nombre": "Hojuelas de Plátano verde",
         "categoria": "Entrada",
-        "ingredientes": [],
+        "ingredientes": [
+            "sal",
+            "agua",
+            "pimienta"],
         "imagen": "",
         "porciones": "3",
-        "instrucciones": [] 
+        "instrucciones": [
+            "paso 1",
+            "paso 2",
+            "paso 3"],
+        "usuario": ""
     },
     {
         "nombre": "",

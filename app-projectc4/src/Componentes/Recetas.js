@@ -38,6 +38,7 @@ class Recetas extends React.Component{
     }
 
     render(){
+        
         return(
             <div className="col-sm-4 text-center mt-4">
                 <div className="card border-primary mb-3 p-2 mx-auto" style={{"width": "18rem"}}>
@@ -51,6 +52,7 @@ class Recetas extends React.Component{
                         <br/>
                         <span className="badge bg-primary rounded-pill">Porciones: {this.props.porciones}</span>
                         <br/>
+                        
                         {this.botones(this.props.usuario)}
                     </div>
                 </div>

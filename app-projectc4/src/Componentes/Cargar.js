@@ -19,6 +19,8 @@ class Cargar extends Component {
                     categoria={dato.categoria}
                     porciones={dato.porciones}
                     imagen={dato.imagen}
+                    ingredientes={dato.ingredientes}
+                    instrucciones={dato.instrucciones}
                     
                     
                 />

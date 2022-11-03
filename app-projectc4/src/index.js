@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Encabezado />
-    <Navegacion enlace1="Inicio" enlace2="Crear Articulo" enlace3="Iniciar Sesión" enlace4="Crear Usuario"/>
+    <Navegacion enlace1="Home" enlace2="Recetario" enlace3="Crear receta" enlace4="Crear Usuario" enlace5="Iniciar Sesión"/>
 
     <PiePagina/>
   </React.StrictMode>
