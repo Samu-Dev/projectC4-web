@@ -3,24 +3,107 @@
         "nombre": "Hojuelas de Plátano verde",
         "categoria": "Entrada",
         "ingredientes": [
-            "sal",
-            "agua",
-            "pimienta"],
+            "3 plátanos verdes medianos",
+            "1 huevo",
+            "1 cucharadita de sal",
+            "2 cucharaditas de mantequilla",
+            "aceite para freír"
+        ],
         "imagen": "",
         "porciones": "3",
         "instrucciones": [
             "paso 1",
             "paso 2",
-            "paso 3"],
-        "usuario": ""
+            "paso 3",
+            "paso 4"
+        ]
     },
     {
-        "nombre": "",
-        "categoria": "",
-        "ingredientes": [],
+        "nombre": "Coquitas de aguacate con maíz",
+        "categoria": "Entrada",
+        "ingredientes": [
+            "3 aguacates medianos cortados a la mitad",
+            "6 mazorcas tiernas ó 1 lata grande de maíz",
+            "6 tiras de tocineta",
+            "1 1/2 cucharadas de pimentón rojo finamente picado",
+            "1 1/2 cucharadas de pimentón verde finamente picado",
+            "1 cucharadita de mantequilla",
+            "Jugo de 2 limones grandes"
+        ],
         "imagen": "",
-        "porciones": "",
-        "instrucciones": [] 
+        "porciones": "6",
+        "instrucciones": [ "paso 1",
+            "paso 2",
+            "paso 3",
+            "paso 4"
+        ]
+    },
+    {
+        "nombre": "Ropa vieja",
+        "categoria": "Platos fuertes",
+        "ingredientes": [
+            "2 libras de carne para deshilachar",
+            "2 cucharadas de mantequilla",
+            "4 cucharadas de aceite",
+            "4 tallos de cebolla de rama cortada en tiras delgadas",
+            "1 1/2 libras de tomate pelados y picados",
+            "6 huevos batidos",
+            "sal",
+            "pimienta",
+            "1 pizca de color"
+        ],
+        "imagen": "",
+        "porciones": "4",
+        "instrucciones": [ "paso 1",
+            "paso 2",
+            "paso 3"]
+    },
+    {
+        "nombre": "Arroz atollado con almejas",
+        "categoria": "Platos fuertes",
+        "ingredientes": [
+            "2 libras de almejas sin concha ó 4 libras con su concha",
+            "2 libras de arroz",
+            "2 tazas de agua",
+            "1 taza de hogao",
+            "especias al gusto"
+        ],
+        "imagen": "",
+        "porciones": "10",
+        "instrucciones": [ "paso 1",
+            "paso 2"
+        ]
+    },
+    {
+        "nombre": "Esponjado de mora",
+        "categoria": "Postres",
+        "ingredientes": [
+            "4 claras de huevo",
+            "1 taza de pulpa de mora",
+            "1/2 taza de azúcar",
+            "1 taza de crema de leche"
+        ],
+        "imagen": "",
+        "porciones": "2",
+        "instrucciones": [ "paso 1",
+            "paso 2"
+        ]
+    },
+    {
+        "nombre": "Mousse de chocolate",
+        "categoria": "Postres",
+        "ingredientes": [
+            "90gr de chocolate negro cortado en trozos pequeños",
+            "1 cucharadita de mantequilla",
+            "2 huevos (yemas y claras aparte)",
+            "1 taza de crema de leche",
+            "virutas de chocolate amargo"
+        ],
+        "imagen": "",
+        "porciones": "3",
+        "instrucciones": [ "paso 1",
+            "paso 2"
+        ]
     }
     
 ]
