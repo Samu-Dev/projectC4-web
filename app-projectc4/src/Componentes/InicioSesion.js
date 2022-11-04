@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class InicioSesion extends Component {
+class InicioSesion extends Component {tabIndex
 
     constructor(){
         super();
@@ -27,11 +27,11 @@ class InicioSesion extends Component {
 
                         <div className="form-floating text-dark">
                             <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="usuario" onChange={this.cambio}/>
-                            <label for="floatingInput">Correo electrónico</label>
+                            <label htmlFor="floatingInput">Correo electrónico</label>
                         </div>
                         <div className="form-floating text-dark mt-2">
                             <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="cont" onChange={this.cambio}/>
-                            <label for="floatingPassword">Contraseña</label>
+                            <label htmlFor="floatingPassword">Contraseña</label>
                         </div>
 
                         <div className="checkbox mb-3 mt-2">
