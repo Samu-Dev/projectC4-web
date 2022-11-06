@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src="https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/logobanner.png" className="App-logo" alt="logo" />
         <p>
           Este es nuestro <code>src/App.js</code> Proyecto ciclo 4.
         </p>

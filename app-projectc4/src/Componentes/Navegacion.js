@@ -1,3 +1,4 @@
+import './componentes.css';
 import React, {Component} from "react";
 import {Cargar} from "./Cargar";
 import { CrearUsuario } from "./CrearUsuario";
@@ -9,7 +10,7 @@ class Navegacion extends Component{
     render(){
         return(
             <div className="bg-light">
-                <div className="nav">
+                <div className="nav navbar-expand-lg">
                     <ul className="nav nav-tabs nav-pills" id="myTab" role="tablist">
                         <li className="nav-item" role="presentation">
                             <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#enlace1" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">{this.props.enlace1}</button>
@@ -30,9 +31,9 @@ class Navegacion extends Component{
 
                     <form className="d-flex ms-5" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-primary" type="submit">Search</button>
+                            <button className="btn btn-outline-danger" type="submit">Search</button>
                     </form>
-                    <div className="text-primary ms-5 mt-2">
+                    <div className="color-red ms-5 mt-2">
                         Usuario: Georgie
                     </div>
                 </div>

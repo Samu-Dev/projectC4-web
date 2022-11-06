@@ -41,9 +41,9 @@ class Recetas extends React.Component{
         
         return(
             <div className="col-sm-4 text-center mt-4">
-                <div className="card border-primary mb-3 p-2 mx-auto" style={{"width": "18rem"}}>
+                <div className="card border-primary mb-3 p-2 mx-auto" style={{"width": "25rem"}}>
                     <div className="card-body">
-                        <img className="card-img-top" height="300" width="auto" src={process.env.PUBLIC_URL+this.props.imagen} alt=""></img>
+                        <img className="card-img-top" height="200" width="auto" src={process.env.PUBLIC_URL+this.props.imagen} alt=""></img>
                         <h5 className="card-title text-dark mt-3">{this.props.nombre}</h5>
                         <p className="card-text text-dark">{this.props.descripcion}</p>
                         <span className="badge bg-danger rounded-pill">Categoría: {this.props.categoria}</span>
