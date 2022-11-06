@@ -34,7 +34,7 @@ class Navegacion extends Component{
                             <button className="btn btn-outline-danger" type="submit">Search</button>
                     </form>
                     <div className="color-red ms-5 mt-2">
-                        Usuario: Georgie
+                        Usuario: User
                     </div>
                 </div>
 
