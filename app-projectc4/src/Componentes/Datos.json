@@ -9,7 +9,7 @@
             "2 cucharaditas de mantequilla",
             "aceite para freír"
         ],
-        "imagen": "",
+        "imagen": "https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/hojuelas-de-platano-verde.jpg",
         "porciones": "3",
         "instrucciones": [
             "paso 1",
@@ -30,7 +30,7 @@
             "1 cucharadita de mantequilla",
             "Jugo de 2 limones grandes"
         ],
-        "imagen": "",
+        "imagen": "https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/coquita-de-aguacate-con-maiz.jpg",
         "porciones": "6",
         "instrucciones": [ "paso 1",
             "paso 2",
@@ -52,7 +52,7 @@
             "pimienta",
             "1 pizca de color"
         ],
-        "imagen": "",
+        "imagen": "https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/ropa-vieja.jpg",
         "porciones": "4",
         "instrucciones": [ "paso 1",
             "paso 2",
@@ -68,7 +68,7 @@
             "1 taza de hogao",
             "especias al gusto"
         ],
-        "imagen": "",
+        "imagen": "https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/arroz-atollado-con-almejas.jpg",
         "porciones": "10",
         "instrucciones": [ "paso 1",
             "paso 2"
@@ -83,7 +83,7 @@
             "1/2 taza de azúcar",
             "1 taza de crema de leche"
         ],
-        "imagen": "",
+        "imagen": "https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/esponjado-de-mora.jpg",
         "porciones": "2",
         "instrucciones": [ "paso 1",
             "paso 2"
@@ -99,7 +99,7 @@
             "1 taza de crema de leche",
             "virutas de chocolate amargo"
         ],
-        "imagen": "",
+        "imagen": "https://raw.githubusercontent.com/Samu-Dev/projectC4-web/main/IMAGENES/mousse-de-chocolate.jpg",
         "porciones": "3",
         "instrucciones": [ "paso 1",
             "paso 2"
