@@ -10,7 +10,7 @@ class Navegacion extends Component{
     render(){
         return(
             <div className="bg-light mt-5 mb-5">
-                <div className="nav navbar-expand-lg">
+                <div className="nav navbar-expand-lg pt-3 pb-3 ms-5">
                     <ul className="nav nav-tabs nav-pills" id="myTab" role="tablist">
                         <li className="nav-item" role="presentation">
                             <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#enlace1" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">{this.props.enlace1}</button>
