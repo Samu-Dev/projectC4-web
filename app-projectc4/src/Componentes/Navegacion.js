@@ -9,7 +9,7 @@ import { Home } from "./Home.js";
 class Navegacion extends Component{
     render(){
         return(
-            <div className="bg-light">
+            <div className="bg-light mt-5 mb-5">
                 <div className="nav navbar-expand-lg">
                     <ul className="nav nav-tabs nav-pills" id="myTab" role="tablist">
                         <li className="nav-item" role="presentation">
