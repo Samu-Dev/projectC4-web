@@ -2,9 +2,15 @@
     color: red;
 }
 
+.tab-content{
+    
+}
+
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: white;
     background-color: red;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .nav-link{
