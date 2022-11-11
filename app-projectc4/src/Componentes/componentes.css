@@ -18,3 +18,8 @@
     color: red;
 }
 
+.nav-link:focus, .nav-link:hover {
+    color: #00ff88;
+}
+
+

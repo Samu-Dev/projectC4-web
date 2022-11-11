@@ -1,10 +1,11 @@
+import './componentes.css';
 import React, { Component } from "react";
 //import logo from "./logo.png"
 
 class PiePagina extends Component {
     render() {
         return (
-            <div>
+            <div className="footer">
                 <div className="b-example-divider"></div>
                 
                 <div className="fluid">
