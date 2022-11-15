@@ -5,6 +5,7 @@ import { CrearUsuario } from "./CrearUsuario";
 import { CrearReceta } from "./CrearReceta";
 import { InicioSesion } from "./InicioSesion";
 import { Home } from "./Home.js";
+import {FormularioPRUEBA} from "./FormularioPRUEBA";
 
 class Navegacion extends Component{
     render(){
@@ -26,6 +27,9 @@ class Navegacion extends Component{
                         </li>
                         <li className="nav-item" role="presentation">
                             <button className="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#enlace5" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">{this.props.enlace5}</button>
+                        </li>
+                        <li className="nav-item" role="presentation">
+                            <button className="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#enlace6" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">{this.props.enlace6}</button>
                         </li>
                     </ul>
 
@@ -53,6 +57,9 @@ class Navegacion extends Component{
                     </div>
                     <div className="tab-pane fade text-white" id="enlace5" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
                         <InicioSesion />
+                    </div>
+                    <div className="tab-pane fade text-white" id="enlace6" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
+                        <FormularioPRUEBA />
                     </div>
                 </div>
             </div>
