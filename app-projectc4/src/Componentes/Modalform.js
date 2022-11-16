@@ -16,7 +16,9 @@ function Modalform() {
         <Modal.Header closeButton>
           <Modal.Title>Edita tus ingredientes</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Ingredientes</Modal.Body>
+        <Modal.Body>
+          <input type="text" placeholder="Nombre Ingrediente" name="" className="hidden"></input>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
