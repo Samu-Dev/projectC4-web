@@ -24,7 +24,7 @@ class FormIngredientes extends Component {
     }
 
     borrar = (e) => {
-        const indice = e.target.id;
+        const indice = e.target.getAttribute('data-boton-eliminar');
         const arrayIngredientes = this.state.ingrediente;
         if (indice > -1){
                 this.setState({
@@ -44,8 +44,9 @@ class FormIngredientes extends Component {
                                     <span className="form-control mt-1" > {ingrediente.cantidad} de {ingrediente.nombre} </span>    
                                 </div>
                                 <div className="col-sm-5 col-md-4 mt-1"> 
-                                    <Modalform /> 
-                                    <button id={index} type='button' onClick={this.borrar} className="btn btn-danger ms-1">Borrar</button>
+                                    <Modalform                                    
+                                    /> 
+                                    <button data-boton-eliminar={index} type='button' onClick={this.borrar} className="btn btn-danger ms-1">Borrar</button>
                                 </div>
                                 <div></div>
                                 {/* <div className="margin-right-3"> */}

@@ -31,10 +31,10 @@ class CrearReceta extends Component{
 
     render(){
         return(
-            <div className="card w-50 m-auto mt-4 mb-4 border-primary">
-                <h1 className="m-auto text-dark mt-3">Nueva Receta</h1> 
-                <form className="card-body">
-                    <h6 className="text-dark mt-1 mb-0"> CREADOR: <i>{this.props.usuario}</i> </h6> 
+            <div className="card w-50 m-auto mt-4 mb-4 border-primary" >
+                <h1 className="m-auto text-dark mt-3">Nueva Receta</h1>
+                <h4 className="m-auto text-dark mt-3"> AUTOR: <i>{this.props.usuario}</i> </h4>  
+                <form className="card-body">                    
                     <div className="form-group">
                         <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control mt-3"/>    
                     </div>
