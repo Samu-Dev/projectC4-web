@@ -7,7 +7,8 @@ function Modalform() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
+  
   return (
     <>
       <Button variant="primary" onClick={handleShow}>Editar</Button>
@@ -17,7 +18,7 @@ function Modalform() {
           <Modal.Title>Edita tus ingredientes</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" placeholder="Nombre Ingrediente" name="" className="hidden"></input>
+          <input id='ingredienteCambiado' type="text" placeholder="Nombre Ingrediente" name="" className="hidden"></input>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

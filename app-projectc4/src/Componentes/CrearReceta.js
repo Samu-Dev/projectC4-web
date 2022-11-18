@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { FormIngredientes } from "./FormIngredientes.js";
 
 class CrearReceta extends Component{
     
@@ -20,8 +21,8 @@ class CrearReceta extends Component{
         let nam = e.target.name;
         let val = e.target.value;
         this.setState({[nam]:val});
-        console.log("-----------------------");
-        console.log(this.state);
+        // console.log("-----------------------");
+        // console.log(this.state);
     }
 
     guardar() {
@@ -31,34 +32,38 @@ class CrearReceta extends Component{
     render(){
         return(
             <div className="card w-50 m-auto mt-4 mb-4 border-primary">
-                <h1 className="m-auto text-dark mt-3">Nueva Receta</h1>
+                <h1 className="m-auto text-dark mt-3">Nueva Receta</h1> 
                 <form className="card-body">
+                    <h6 className="text-dark mt-1 mb-0"> CREADOR: <i>{this.props.usuario}</i> </h6> 
                     <div className="form-group">
-                        <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control"/>   
+                        <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control mt-3"/>    
                     </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
+                    <div className="form-group mt-3 ">
+                        {/* <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>    */}
+                        <FormIngredientes />
                     </div>
+                    <h6 className="text-dark mt-3 mb-0">CATEGORIA</h6>
                     <div className="form-group">
-                        <input type="number" placeholder="Porciones" name="porciones" className="form-control mt-3" onChange={this.cambio}/>   
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Creador" name="usuario" className="form-control mt-3" onChange={this.cambio}/>   
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Imagen Plato" name="imagen" className="form-control mt-3" onChange={this.cambio}/>   
-                    </div>
-                    <h5 className="text-dark mt-2 ms-2">CATEGORIA</h5>
-                    <div className="form-group">
-                        <select name="Categoría" className="form-control mt-3" onChange={this.cambio}>
+                        <select name="Categoría" className="form-control mt-1" onChange={this.cambio}>
                             <option>Entrada</option>
                             <option>Plato Fuerte</option>
                             <option>Postre</option>
                         </select>
                     </div>
+                    <div className="form-group">
+                        <input type="number" placeholder="Porciones" name="porciones" className="form-control mt-3" onChange={this.cambio}/>   
+                    </div>
+                    <div className="form-group">
+                        <textarea type="text" placeholder="Instrucciones" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
+                    </div>
+                    {/* <div className="form-group">
+                        <input type="text" placeholder="Creador" name="usuario" className="form-control mt-3" onChange={this.cambio}/>   
+                    </div> */}
+                    <h6 className="text-dark p-0 mt-3 mb-0">IMAGEN</h6>
+                    <div className="form-group">
+                        <input type="file" placeholder="Imagen" name="imagen" className="form-control mt-2" onChange={this.cambio}/>   
+                    </div>
+                    
                     <div className="d-grid gap-2 col-3 mx-auto mt-3">
                         <button className="btn btn-primary" type="button" onClick={this.guardar}>Crear</button>
                     </div>

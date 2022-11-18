@@ -5,7 +5,6 @@ import { CrearUsuario } from "./CrearUsuario";
 import { CrearReceta } from "./CrearReceta";
 import { InicioSesion } from "./InicioSesion";
 import { Home } from "./Home.js";
-import { FormPRUEBA } from './FormPRUEBA';
 
 class Navegacion extends Component{
     render(){
@@ -28,16 +27,16 @@ class Navegacion extends Component{
                         <li className="nav-item" role="presentation">
                             <button className="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#enlace5" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">{this.props.enlace5}</button>
                         </li>
-                        <li className="nav-item" role="presentation">
+                        {/* <li className="nav-item" role="presentation">
                             <button className="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#enlace6" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">{this.props.enlace6}</button>
-                        </li>
+                        </li> */}
                     </ul>
 
                     <form className="d-flex ms-5" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                             <button className="btn btn-outline-danger" type="submit">Search</button>
                     </form>
-                    <div className="color-red ms-5 mt-2">
+                    <div id='userName' className="color-red ms-5 mt-2">
                         Usuario: User
                     </div>
                 </div>
@@ -50,7 +49,9 @@ class Navegacion extends Component{
                         <Cargar />
                     </div>
                     <div className="tab-pane fade text-white" id="enlace3" role="tabpanel" aria-labelledby="contact-tab" tabIndex="0">
-                        <CrearReceta />
+                        <CrearReceta
+                            usuario = 'User'    
+                        />
                     </div>
                     <div className="tab-pane fade text-white" id="enlace4" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
                         <CrearUsuario />                        
@@ -58,9 +59,9 @@ class Navegacion extends Component{
                     <div className="tab-pane fade text-white" id="enlace5" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
                         <InicioSesion />
                     </div>
-                    <div className="tab-pane fade text-white" id="enlace6" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
-                        <FormPRUEBA />
-                    </div>
+                    {/* <div className="tab-pane fade text-white" id="enlace6" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
+                        <FormIngredientes />
+                    </div> */}
                 </div>
             </div>
         );
