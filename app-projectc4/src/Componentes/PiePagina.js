@@ -14,8 +14,8 @@ class PiePagina extends Component {
                             <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                                 <img className="bi" width="150" height="auto" src={process.env.PUBLIC_URL+"./recursos/logo_utp.png"} alt=""></img>
                             </a>
-                            <span className="mb-3 mb-md-0 text-white">&copy; 2022 Company, Inc</span>
-                            <span className="mb-3 mb-md-0 text-white">Nuestro equipo</span>
+                            <span className="mb-3 mb-md-0 text-white">&copy; 2022 Company, Inc - <a href="/"> Nuestro equipo</a></span>
+                            <span className="mb-3 mb-md-0 text-white"> - </span> 
                         </div>
                     </footer>
                 </div>

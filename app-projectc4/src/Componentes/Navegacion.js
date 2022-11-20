@@ -5,7 +5,7 @@ import { CrearUsuario } from "./CrearUsuario";
 import { CrearReceta } from "./CrearReceta";
 import { InicioSesion } from "./InicioSesion";
 import { Home } from "./Home.js";
-import { FormPRUEBA } from './FormPRUEBA';
+import { Team } from './Team.js';
 
 class Navegacion extends Component{
     render(){
@@ -59,7 +59,7 @@ class Navegacion extends Component{
                         <InicioSesion />
                     </div>
                     <div className="tab-pane fade text-white" id="enlace6" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
-                        <FormPRUEBA />
+                        <Team />
                     </div>
                 </div>
             </div>

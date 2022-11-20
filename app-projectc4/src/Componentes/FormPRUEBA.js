@@ -62,7 +62,7 @@ class FormPRUEBA extends Component {
             return <div className="">
                 <li className="margin-right-3">{ingre}
                     <Modalform />
-                    <button onClick={this.borrar} className="btn btn-danger">Borrar</button>
+                    <button onClick={this.borrar} className="btn btn-danger btn-sm">Borrar</button>
                 </li>
             </div>
         })
@@ -70,10 +70,10 @@ class FormPRUEBA extends Component {
         return (
             <div>
                 <form>
-                    <div className="form-group">
+                    <div className="form-group align-items-strech mt-2">
                         <input type="text" placeholder="Nombre Artículo" name="valor" className="form-control" data-texto></input>
+                        <button type="button" className="btn btn-primary btn-sm" onClick={this.agregar} name="ingrediente"> Agregar </button>
                     </div>
-                    <button type="button" className="btn btn-primary " onClick={this.agregar} name="ingrediente"> Agregar </button>
                 </form>
                 <div>
                     <ul className="text-dark">

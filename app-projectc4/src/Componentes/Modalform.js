@@ -10,7 +10,7 @@ function Modalform() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>Editar</Button>
+      <Button className="btn-sm mt-2" variant="primary" onClick={handleShow}>Editar</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

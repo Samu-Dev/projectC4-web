@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { FormPRUEBA } from "./FormPRUEBA";
 
 class CrearReceta extends Component{
     
@@ -36,14 +37,14 @@ class CrearReceta extends Component{
                     <div className="form-group">
                         <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control"/>   
                     </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
+                    <div className="form-group mt-3">
+                        <FormPRUEBA />
                     </div>
                     <div className="form-group">
                         <input type="number" placeholder="Porciones" name="porciones" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
+                        <input type="textarea" placeholder="Ingredientes" name="ingredientes" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
                     <div className="form-group">
                         <input type="text" placeholder="Creador" name="usuario" className="form-control mt-3" onChange={this.cambio}/>   
