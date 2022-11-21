@@ -6,7 +6,8 @@ let esquema = mongoose.Schema({
     ingredientes:Array,
     imagen:String,
     porciones:Number,
-    instrucciones:Array,
+    instrucciones:String,
+    idUsuario: String,
 })
 
 let Esquema = mongoose.model("recetas", esquema);

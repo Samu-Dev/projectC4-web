@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const app1 = express();
 const port = 5000;
 
+const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler')
+
 const bodyParser = require('body-parser');
 app1.use(bodyParser.json());
 app1.use(bodyParser.urlencoded({extended:false}));
@@ -23,5 +25,9 @@ app1.use('/servicios', rutas);
 
 const rutas_usr = require('./router/rutas_usr');
 app1.use('/usuarios', rutas_usr);
+
+app1.use(logErrors);
+app1.use(boomErrorHandler);
+app1.use(errorHandler);
 
 app1.listen(port, () => console.log('Servidor levantado'));
