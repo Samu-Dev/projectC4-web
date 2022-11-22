@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modalform } from "./Modalform";
+// import { Modalform } from "./Modalform";
 
 class FormIngredientes extends Component {
     constructor() {
@@ -10,15 +10,13 @@ class FormIngredientes extends Component {
     }
     agregar = (e) => {
         const input = document.querySelector("[data-input-ingrediente]")
-        const cantidad = document.querySelector("[data-input-cantidad]")
         const arrayIngredientes = this.state.ingrediente;
-        if (input.value !== '' && cantidad.value !=='') {
-            const nuevoIngrediente = {'nombre':input.value, 'cantidad':cantidad.value}
+        if (input.value !== '') {
+            const nuevoIngrediente = input.value
             this.setState({
                 [this.ingrediente]: arrayIngredientes.push(nuevoIngrediente)
             });
-        input.value = '';
-        cantidad.value = '';
+        input.value = '';        
         }
         console.log(arrayIngredientes)
     }
@@ -44,28 +42,21 @@ class FormIngredientes extends Component {
                                     <span className="form-control mt-1" > {ingrediente.cantidad} de {ingrediente.nombre} </span>    
                                 </div>
                                 <div className="col-sm-5 col-md-4 mt-1"> 
-                                    <Modalform                                    
-                                    /> 
                                     <button data-boton-eliminar={index} type='button' onClick={this.borrar} className="btn btn-danger ms-1">Borrar</button>
                                 </div>
-                                <div></div>
-                                {/* <div className="margin-right-3"> */}
                             </div>
                         </div>
                     </div>     
         })
 
         return (
-            <div>
+            <>
                     <div className="row">
                         <div className="col-sm-5 col-md-7">
-                            <input type="text" placeholder="Ingrediente" name="valor" className="form-control" data-input-ingrediente></input>
-                        </div>
-                        <div className="col-sm-5 col-md-3">
-                            <input type="text" placeholder="Cantidad" name="valor" className="form-control" data-input-cantidad></input>
+                            <input type="text" placeholder="Ingrediente" name="ingrediente" className="form-control" data-input-ingrediente></input>
                         </div>
                         <div className="col-sm-5 col-md-1">
-                            <button type="button" className="btn btn-primary " onClick={this.agregar} name="ingrediente"> Agregar </button>
+                            <button type="button" className="btn btn-primary" onClick={this.agregar} name="ingrediente"> Agregar </button>
                         </div>
                     </div>               
                 
@@ -73,7 +64,7 @@ class FormIngredientes extends Component {
                     {listaIngredientes}
                 </ul>
             
-            </div>
+            </>
         );
     };
 }

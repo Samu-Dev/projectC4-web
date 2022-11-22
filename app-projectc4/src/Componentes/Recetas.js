@@ -1,5 +1,5 @@
 import React from "react";
-//import Datos from './Datos.json'
+import { VerReceta } from "./VerReceta.js";
 
 class Recetas extends React.Component{
     constructor(){
@@ -17,8 +17,8 @@ class Recetas extends React.Component{
         }
     }
 
-    editar(){
-        alert('Editando...');
+    editar = () =>{
+        
     }
 
     intercambiar(){
@@ -38,27 +38,33 @@ class Recetas extends React.Component{
     }
 
     render(){
-        
+        let recetas = 
+        <div className="card border-primary mb-3 p-2 mx-auto" style={{"width": "25rem"}}>
+            <div className="card-body">
+                <img className="card-img-top" height="200" width="auto" src={process.env.PUBLIC_URL+this.props.imagen} alt=""></img>
+                <h5 className="card-title text-dark mt-3">{this.props.nombre}</h5>
+                <p className="card-text text-dark">{this.props.descripcion}</p>
+                <span className="badge bg-danger rounded-pill">Categoría: {this.props.categoria}</span>
+                <br/>
+                <span className="badge bg-success rounded-pill">Usuario: {this.props.usuario}</span>
+                <br/>
+                <span className="badge bg-primary rounded-pill">Porciones: {this.props.porciones}</span>
+                <br/>
+                
+                {this.botones(this.props.usuario)}
+            </div>
+        </div>
+    
         return(
             <div className="col-sm-4 text-center mt-4">
-                <div className="card border-primary mb-3 p-2 mx-auto" style={{"width": "25rem"}}>
-                    <div className="card-body">
-                        <img className="card-img-top" height="200" width="auto" src={process.env.PUBLIC_URL+this.props.imagen} alt=""></img>
-                        <h5 className="card-title text-dark mt-3">{this.props.nombre}</h5>
-                        <p className="card-text text-dark">{this.props.descripcion}</p>
-                        <span className="badge bg-danger rounded-pill">Categoría: {this.props.categoria}</span>
-                        <br/>
-                        <span className="badge bg-success rounded-pill">Usuario: {this.props.usuario}</span>
-                        <br/>
-                        <span className="badge bg-primary rounded-pill">Porciones: {this.props.porciones}</span>
-                        <br/>
-                        
-                        {this.botones(this.props.usuario)}
-                    </div>
-                </div>
+                {recetas}
             </div>
+            
+
+            
         );
     }
+    
 }
 
 export { Recetas };

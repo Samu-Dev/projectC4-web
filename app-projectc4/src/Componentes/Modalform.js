@@ -8,8 +8,7 @@ function Modalform() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);  
 
-  return (
-    
+  return (    
     <>
       <Button variant="primary" onClick={handleShow} >Editar</Button>
 

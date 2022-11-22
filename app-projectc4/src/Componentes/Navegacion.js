@@ -1,14 +1,15 @@
 import './componentes.css';
-import React, {Component} from "react";
-import {Cargar} from "./Cargar";
+import React, { Component } from "react";
+import { Cargar } from "./Cargar";
 import { CrearUsuario } from "./CrearUsuario";
 import { CrearReceta } from "./CrearReceta";
+import { VerReceta } from './VerReceta.js';
 import { InicioSesion } from "./InicioSesion";
 import { Home } from "./Home.js";
 
-class Navegacion extends Component{
-    render(){
-        return(
+class Navegacion extends Component {
+    render() {
+        return (
             <div className="bg-light mt-5 mb-5">
                 <div className="nav navbar-expand-lg pt-3 pb-3 ms-5">
                     <ul className="nav nav-tabs nav-pills" id="myTab" role="tablist">
@@ -33,8 +34,8 @@ class Navegacion extends Component{
                     </ul>
 
                     <form className="d-flex ms-5" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-danger" type="submit">Search</button>
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button className="btn btn-outline-danger" type="submit">Search</button>
                     </form>
                     <div id='userName' className="color-red ms-5 mt-2">
                         Usuario: User
@@ -50,11 +51,11 @@ class Navegacion extends Component{
                     </div>
                     <div className="tab-pane fade text-white" id="enlace3" role="tabpanel" aria-labelledby="contact-tab" tabIndex="0">
                         <CrearReceta
-                            usuario = 'User'    
-                        />
+                            usuario='User'
+                        />                        
                     </div>
                     <div className="tab-pane fade text-white" id="enlace4" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
-                        <CrearUsuario />                        
+                        <CrearUsuario />
                     </div>
                     <div className="tab-pane fade text-white" id="enlace5" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
                         <InicioSesion />
@@ -68,4 +69,4 @@ class Navegacion extends Component{
     }
 }
 
-export {Navegacion};
+export { Navegacion };
