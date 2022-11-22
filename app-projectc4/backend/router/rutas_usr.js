@@ -2,6 +2,7 @@ const express = require('express');
 const rutas_usr = express.Router();
 const validatorHandler = require('./../middlewares/validatorHandler');
 const { crearUsuarioSchema, getUsuarioSchema, actualizarUsuarioSchema } = require('./../schemas/usuariosSchema');
+const bcrypt = require('bcrypt');
 
 const Esquema = require('../Modelos/bd_usuarios');
 
@@ -18,11 +19,14 @@ rutas_usr.post('/nuevo',
             email: body.email,
             pswd: body.pswd
         })
-            
+        
+        const hashedPswd = await bcrypt.hash(body.pswd, 10);
+        guardar.pswd = hashedPswd;
         await guardar.save((err, guardadodb) => {
             if (err) {
                 res.send(err);
             }else{
+                delete res.json['pswd']
                 res.json(guardadodb);
             }
         })

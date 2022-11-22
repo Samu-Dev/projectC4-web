@@ -2,8 +2,16 @@ const express = require('express');
 const rutas = express.Router();
 const validatorHandler = require('./../middlewares/validatorHandler');
 const { crearRecetaSchema, getRecetaSchema, actualizarRecetaSchema } = require('./../schemas/recetasSchema')
+const { checkApiKey } = require('../middlewares/authHandler');
 
 const Esquema = require('../Modelos/bd_recetas');
+
+// Prueba auth
+rutas.get('/prueba', checkApiKey, async (req,res) => {
+    await Esquema
+        .find({})
+        .then(data => res.json(data))
+})
 
 //Servicio POST (Create)
 rutas.post('/nueva', 
