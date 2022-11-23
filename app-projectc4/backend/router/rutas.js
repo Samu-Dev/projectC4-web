@@ -4,70 +4,66 @@ const validatorHandler = require('./../middlewares/validatorHandler');
 const { crearRecetaSchema, getRecetaSchema, actualizarRecetaSchema } = require('./../schemas/recetasSchema')
 const { checkApiKey } = require('../middlewares/authHandler');
 
-const Esquema = require('../Modelos/bd_recetas');
+const RecetaService = require('../services/recetaService');
+const service = new RecetaService();
 
 // Prueba auth
-rutas.get('/prueba', checkApiKey, async (req,res) => {
-    await Esquema
-        .find({})
-        .then(data => res.json(data))
-})
+// rutas.get('/prueba', checkApiKey, async (req,res) => {
+//     await Esquema
+//         .find({})
+//         .then(data => res.json(data))
+// })
 
 //Servicio POST (Create)
 rutas.post('/nueva', 
     validatorHandler(crearRecetaSchema, 'body'),
-    async (req, res, bext) => {
-        let body = req.body
-        let guardar = new Esquema({
-            nombre:body.nombre,
-            categoria: body.categoria,
-            ingredientes: body.ingredientes,
-            porciones: body.porciones,
-            instrucciones: body.instrucciones,
-            imagen: body.imagen,
-            idUsuario: body.idUsuario,
-        })
-            
-        await guardar.save((err, guardadodb) => {
-            if (err) {
-                res.send(err);
-            }else{
-                res.json(guardadodb);
-            }
-        })
+    async (req, res, next) => {
+        try {
+            let body = req.body
+            let nuevaReceta = await service.createRecipe(body)
+            res.status(201).json(nuevaReceta)
+        } catch (error){
+            next(error)
+        }
     }
 );
 
 // Servicio GET find all (Read)
-rutas.get('/recetas', async (req,res) => {
-    await Esquema
-        .find({})
-        .then(data => res.json(data))
-})
+rutas.get('/', async (req, res, next) => {
+    try {
+        const recetas = await service.findRecipes();
+        res.json(recetas);
+    } catch (error) {
+        next(error);
+    }
+});
 
 // Servicio GET find one (Read)
-rutas.get('/recetas/:id', 
+rutas.get('/id/:id', 
     validatorHandler(getRecetaSchema, 'params'),
-    async (req,res, next) => {
+    async (req, res, next) => {
         try{
             let { id } = req.params
-            await Esquema
-                .findById(id)
-                .then(data => res.json(data))
-                .catch(err => console.log(err))
+            let receta = await service.findRecipeById(id);
+            res.json(receta)
         } catch (error) {
             next(error);
         }
-})
+    }
+);
 
 // Servicio GET find many by name (Read)
-rutas.get('/recetas/busqueda/:nome', async (req,res) => {
-    let {nome} = req.params
-    let xy = new RegExp(nome, "i")
-    await Esquema
-        .find({$or: [{ingredientes: {$regex: xy}}, {nombre: {$regex: xy}}]})  
-        .then(data => res.json(data))
-})
+rutas.get('/nombre/:nome', 
+    async (req, res, next) => {
+        try{
+            let {nome} = req.params
+            let recipeNome = await service.findRecipeByName(nome);
+            res.json(recipeNome)
+        } catch (error) {
+            next(error)
+        }
+    }
+);
 
 // Servicio PUT (Update)
 rutas.post('/actualizar/:id', 
@@ -76,33 +72,27 @@ rutas.post('/actualizar/:id',
     async (req, res, next) => {
         let { id } = req.params
         let body = req.body
-        await Esquema.updateOne({_id:id}, {
-            $set:{
-                nombre: body.nombre,
-                categoria: body.categoria,
-                ingredientes: body.ingredientes,
-                imagen: body.imagen,
-                porciones: body.porciones,
-                instrucciones: body.instrucciones
-            }
-        }, function(err, info) {
-            if (err){
-                res.send(err)
-            }else{
-                res.json(info)
-            }
-        })
-            .clone()
-            .catch(err => console.log(err))
+        try {
+            let actualizarReceta = await service.updateRecipe(id, body);
+            res.json(actualizarReceta)
+        } catch (error){
+            next(error)
+        }
     }
 );
 
 // Servicio DELETE
-rutas.get('/borrar/:id', async (req,res) => {
-    let {id} = req.params
-    await Esquema
-        .findByIdAndDelete(id)
-        .then(res.send("Documento borrado"))
-})
+rutas.get('/borrar/:id',
+    validatorHandler(getRecetaSchema, 'params'),
+    async (req, res, next) => {
+        let { id } = req.params
+        try {
+            const borrarReceta = service.deleteRecipe(id);
+            res.status(202).json(borrarReceta)
+        } catch (error) {
+            next(error)
+        }
+    }
+);
 
 module.exports = rutas;

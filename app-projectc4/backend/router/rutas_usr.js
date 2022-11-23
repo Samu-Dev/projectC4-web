@@ -2,67 +2,76 @@ const express = require('express');
 const rutas_usr = express.Router();
 const validatorHandler = require('./../middlewares/validatorHandler');
 const { crearUsuarioSchema, getUsuarioSchema, actualizarUsuarioSchema } = require('./../schemas/usuariosSchema');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
-const Esquema = require('../Modelos/bd_usuarios');
+const UserService = require('../services/userService');
+const service = new UserService();
 
 //Servicio POST (Create)
 rutas_usr.post('/nuevo', 
     validatorHandler(crearUsuarioSchema, 'body'),
-    async (req, res, bext) => {
-        let body = req.body
-        let guardar = new Esquema({
-            nombres:body.nombres,
-            apellidos: body.apellidos,
-            edad: body.edad,
-            ciudad: body.ciudad,
-            email: body.email,
-            pswd: body.pswd
-        })
-        
-        const hashedPswd = await bcrypt.hash(body.pswd, 10);
-        guardar.pswd = hashedPswd;
-        await guardar.save((err, guardadodb) => {
-            if (err) {
-                res.send(err);
-            }else{
-                delete res.json['pswd']
-                res.json(guardadodb);
-            }
-        })
+    async (req, res, next) => {
+        try {
+            let body = req.body
+            let nuevoUsuario = await service.createUser(body)
+            res.status(201).json(nuevoUsuario)
+        } catch (error){
+            next(error)
+        }
     }
 );
 
 // Servicio GET find all (Read)
-rutas_usr.get('/usuarios', async (req,res) => {
-    await Esquema
-        .find({})
-        .then(data => res.json(data))
+rutas_usr.get('/', async (req, res, next) => {
+    try {
+        const usuarios = await service.findAllUsers();
+        res.json(usuarios);
+    } catch (error) {
+        next(error);
+    }
 });
 
-// Servicio GET find one (Read)
-rutas_usr.get('/usuarios/:id', 
+// Servicio GET find one by Id(Read)
+rutas_usr.get('id/:id', 
     validatorHandler(getUsuarioSchema, 'params'),
-    async (req,res, next) => {
+    async (req, res, next) => {
         try{
-            let { id } = req.params
-            await Esquema
-                .findById(id)
-                .then(data => res.json(data))
-                .catch(err => console.log(err))
+            const { id } = req.params
+            const usuario = await service.findUser(id)
+            res.json(usuario)
         } catch (error) {
             next(error);
         }
-});
+    }
+);
 
 // Servicio GET find by name (Read)
-rutas_usr.get('/usuarios/busqueda/:nome', async (req,res) => {
-    let {nome} = req.params
-    let xy = new RegExp(nome, "i")
-    await Esquema
-        .find({nombres: {$regex: xy}})  
-        .then(data => res.json(data))
-});
+rutas_usr.get('/nombre/:nome', 
+    async (req, res, next) => {
+        try {
+            let {nome} = req.params
+            let xy = new RegExp(nome, "i")
+            let usuarioNome = await service.findUserByName(xy)
+            res.json(usuarioNome)
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+    
+// Servicio GET find user by email (Read)
+rutas_usr.get('/email/:email', 
+    async (req, res, next) => {
+        try {
+            let {email} = req.params
+            let usuarioEmail = await service.findUserByEmail(email)
+            res.json(usuarioEmail)
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+
 // Servicio PUT (Update)
 rutas_usr.post('/actualizar/:id', 
     validatorHandler(getUsuarioSchema, 'params'),
@@ -70,31 +79,27 @@ rutas_usr.post('/actualizar/:id',
     async (req, res, next) => {
         let { id } = req.params
         let body = req.body
-        await Esquema.updateOne({_id:id}, {
-            $set:{
-                nombres:body.nombres,
-                apellidos: body.apellidos,
-                edad: body.edad,
-                ciudad: body.ciudad,
-                email: body.email,
-            }
-        }, function(err, info) {
-            if (err){
-                res.send(err)
-            }else{
-                res.json(info)
-            }
-        })
-            .clone()
-            .catch(err => console.log(err))
+        try {
+            const actualizarUsuario = await service.updateUser(id, body);
+            res.json(actualizarUsuario)
+        } catch (error) {
+            next(error);
+        }
     }
 );
+
 // Servicio DELETE
-rutas_usr.get('/borrar/:id', async (req,res) => {
-    let {id} = req.params
-    await Esquema
-        .findByIdAndDelete(id)
-        .then(res.send("Documento borrado"))
-})
+rutas_usr.get('/borrar/:id', 
+    validatorHandler(getUsuarioSchema, 'params'),
+    async (req, res, next) => {
+        let { id } = req.params
+        try {
+            const borrarUsuario = service.deleteUser(id);
+            res.status(202).json(borrarUsuario)
+        } catch (error) {
+            next(error)
+        }
+    }
+);
 
 module.exports = rutas_usr;

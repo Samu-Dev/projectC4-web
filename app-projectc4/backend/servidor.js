@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 app1.use(bodyParser.json());
 app1.use(bodyParser.urlencoded({extended:false}));
 
+// CONEXIÓN A LA BBDD
 mongoose
     //.connect("mongodb://localhost:27017/trueke_g47")
     .connect("mongodb+srv://jorandho:abc12345@curso-platzi.umzx8wk.mongodb.net/codeKitchen?retryWrites=true&w=majority")
@@ -18,13 +19,17 @@ mongoose
 const cors = require('cors');
 app1.use(cors());
 
-let Esquema = require('./Modelos/bd_recetas');
+require('./utils/auth');
 
+//RUTAS
 const rutas = require('./router/rutas');
-app1.use('/servicios', rutas);
+app1.use('/recetas', rutas);
 
 const rutas_usr = require('./router/rutas_usr');
 app1.use('/usuarios', rutas_usr);
+
+const rutaAuth = require('./router/rutaAutenticacion');
+app1.use('/auth', rutaAuth);
 
 app1.use(logErrors);
 app1.use(boomErrorHandler);
