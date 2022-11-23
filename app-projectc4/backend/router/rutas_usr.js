@@ -14,6 +14,7 @@ rutas_usr.post('/nuevo',
         try {
             let body = req.body
             let nuevoUsuario = await service.createUser(body)
+            delete nuevoUsuario["pswd"]
             res.status(201).json(nuevoUsuario)
         } catch (error){
             next(error)
@@ -32,7 +33,7 @@ rutas_usr.get('/', async (req, res, next) => {
 });
 
 // Servicio GET find one by Id(Read)
-rutas_usr.get('id/:id', 
+rutas_usr.get('/id/:id', 
     validatorHandler(getUsuarioSchema, 'params'),
     async (req, res, next) => {
         try{

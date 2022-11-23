@@ -19,7 +19,7 @@ class UserService {
 
         newUser.pswd = hashedPswd;
         await newUser.save()
-        delete newUser.pswd;
+        delete newUser["pswd"];
         return newUser;
     }
 
