@@ -1,3 +1,8 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color:#222B48;  
+}
+
 .color-red{
     color: red;
 }
@@ -7,14 +12,6 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-}
-
-.home {
-    width: 100vw;
-    height: 100vh;
-    background-image: url(https://github.com/Samu-Dev/projectC4-web/blob/main/IMAGENES/recursos/Portada%20Para%20Facebook.jpg);
-    background-size: cover;
-    
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
@@ -35,17 +32,12 @@
 --------------------------------------------------------------*/
 .team .member {
     text-align: center;
-    margin-bottom: 120px;
+    margin-bottom: 100px;
     position: relative;
 }
 
 .team .member .pic {
 overflow: hidden;
-}
-
-.team img{
-    display: flexbox;
-    
 }
 
 .team .member .member-info {
