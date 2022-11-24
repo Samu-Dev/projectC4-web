@@ -1,9 +1,9 @@
 const express = require('express');
-const passport = require('passport');
+//const passport = require('passport');
 const rutas = express.Router();
 const validatorHandler = require('./../middlewares/validatorHandler');
 const { crearRecetaSchema, getRecetaSchema, actualizarRecetaSchema } = require('./../schemas/recetasSchema')
-const { checkApiKey } = require('../middlewares/authHandler');
+//const { checkApiKey } = require('../middlewares/authHandler');
 
 const RecetaService = require('../services/recetaService');
 const service = new RecetaService();
@@ -17,7 +17,7 @@ const service = new RecetaService();
 
 //Servicio POST (Create)
 rutas.post('/nueva', 
-    passport.authenticate('jwt', {session: false}),
+    //passport.authenticate('jwt', {session: false}),
     validatorHandler(crearRecetaSchema, 'body'),
     async (req, res, next) => {
         try {

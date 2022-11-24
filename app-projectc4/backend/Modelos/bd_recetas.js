@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let esquema = mongoose.Schema({
     nombre:String,
     categoria: String,
-    ingredientes:Array,
+    ingredientes:String,
     imagen:String,
     porciones:Number,
     instrucciones:String,
