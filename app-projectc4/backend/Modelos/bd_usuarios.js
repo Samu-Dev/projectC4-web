@@ -7,7 +7,10 @@ let esquema = mongoose.Schema({
     ciudad:String,
     email:String,
     pswd:String
-})
+});
+
+//Línea que crea en la bbdd el campo de creado y actualizado en una fecha
+esquema.set('timestamps', true);
 
 let Esquema_usr = mongoose.model("usuarios", esquema);
 

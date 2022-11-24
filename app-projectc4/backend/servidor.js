@@ -22,8 +22,8 @@ app1.use(cors());
 require('./utils/auth');
 
 //RUTAS
-const rutas = require('./router/rutas');
-app1.use('/recetas', rutas);
+const rutas_rec = require('./router/rutas_rec');
+app1.use('/recetas', rutas_rec);
 
 const rutas_usr = require('./router/rutas_usr');
 app1.use('/usuarios', rutas_usr);
