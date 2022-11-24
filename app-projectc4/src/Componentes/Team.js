@@ -9,7 +9,7 @@ class Team extends Component{
             <section id="team" className="team">
                 <div className="container">
                     <div className="section-title" data-aos="fade-in" data-aos-delay="100">
-                        <h2>Equipo 1 Grupo 45</h2>
+                        <h2 className="text-dark">Equipo 1 Grupo 45</h2>
                         <p></p>
                     </div>
                     <div className="row">

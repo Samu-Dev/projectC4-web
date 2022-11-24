@@ -9,6 +9,14 @@
 
 }
 
+.home {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://github.com/Samu-Dev/projectC4-web/blob/main/IMAGENES/recursos/Portada%20Para%20Facebook.jpg);
+    background-size: cover;
+    
+}
+
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: white;
     background-color: red;
@@ -33,6 +41,11 @@
 
 .team .member .pic {
 overflow: hidden;
+}
+
+.team img{
+    display: flexbox;
+    
 }
 
 .team .member .member-info {
