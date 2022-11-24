@@ -50,7 +50,7 @@ class CrearUsuario extends Component{
                             <option>Bogotá</option>
                             <option>Medellín</option>
                             <option>Pereira</option>
-                            <option>Otra</option>
+                            <option>Manizales</option>
                         </select>
                     </div>
                     <div className="form-group">
@@ -58,9 +58,6 @@ class CrearUsuario extends Component{
                     </div>
                     <div className="form-group">
                         <input type="password" placeholder="Contraseña" name="clave1" className="form-control mt-3" onChange={this.cambio}/>   
-                    </div>
-                    <div className="form-group">
-                        <input type="password" placeholder="Repita su Contraseña" name="clave2" className="form-control mt-3" onChange={this.cambio}/>   
                     </div>
                     
                     <div className="d-grid gap-2 col-3 mx-auto mt-3">

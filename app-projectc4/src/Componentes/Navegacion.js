@@ -6,6 +6,7 @@ import { CrearReceta } from "./CrearReceta";
 import { InicioSesion } from "./InicioSesion";
 import { Home } from "./Home.js";
 import { Team } from './Team.js';
+import {Bdmongo} from "./Bdmongo.js"
 
 class Navegacion extends Component{
     render(){
@@ -47,7 +48,7 @@ class Navegacion extends Component{
                         <Home />
                     </div>
                     <div className="tab-pane fade text-white" id="enlace2" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
-                        <Cargar />
+                        <Bdmongo/>
                     </div>
                     <div className="tab-pane fade text-white" id="enlace3" role="tabpanel" aria-labelledby="contact-tab" tabIndex="0">
                         <CrearReceta />

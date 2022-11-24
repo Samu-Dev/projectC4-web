@@ -8,7 +8,6 @@ class Cargar extends Component {
         this.state = {
             Datos
         }
-        console.log(this.state.Datos.length);
     }
     render() {
         let mostrar = this.state.Datos.map((dato) => {
@@ -16,22 +15,18 @@ class Cargar extends Component {
                 <Recetas 
                     key={dato.nombre}
                     nombre={dato.nombre}
+                    usuario ={dato.usuario}
                     categoria={dato.categoria}
                     porciones={dato.porciones}
                     imagen={dato.imagen}
                     ingredientes={dato.ingredientes}
-                    instrucciones={dato.instrucciones}
-                    
-                    
+                    instrucciones={dato.instrucciones}   
                 />
             );
         })
         return(
             <div className="row">
-                {mostrar}
-                <span className="badge badge-pill badge-light ml-2">
-                    {this.state.Datos.length}
-                </span>
+                {mostrar}               
             </div>
         );
     }
