@@ -50,7 +50,7 @@ class CrearUsuario extends Component{
                             <option>Bogotá</option>
                             <option>Medellín</option>
                             <option>Pereira</option>
-                            <option>Otra</option>
+                            <option>Manizales</option>
                         </select>
                     </div>
                     <div className="form-group">

@@ -13,8 +13,9 @@ class InicioSesion extends Component {tabIndex
 
     cambio(e){
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value            
         })
+        console.log(this.state)
     }
 
     render(){
@@ -40,7 +41,7 @@ class InicioSesion extends Component {tabIndex
                             </label>
                         </div>
                             <button className="w-100 btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
-                            <p className="mt-5 mb-3 text-muted">Trueke &copy; 2022</p>
+                            <p className="mt-5 mb-3 text-muted">Code : Kitchen &copy; 2022</p>
                     </form>
                 </main>
             </div>

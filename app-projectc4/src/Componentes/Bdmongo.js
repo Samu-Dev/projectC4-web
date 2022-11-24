@@ -1,20 +1,35 @@
-import { useState } from "react"
-import Articulos from "./Articulos"
+import React,{ useState,useEffect } from "react"
+import { Recetas } from "./Recetas"
+import axios from "axios";
+
 
 const Bdmongo=()=>{
     
-    const [todo,settodo]=useState([])
+    const [recetas,setRecetas]=useState([])
+    useEffect(()=>{
+        axios.get('http://localhost:5000/servicios/recetas')
+            .then(res=>setRecetas(res.data))
+            .catch(e => ({e}))
+    })
     
-    const var_datos=()=>{
-        fetch('http://localhost:5000/servicios/todo')
-            .then(res=>res.json())
-            .then(datos2=>settodo(datos2))
-    }
+        
 
-    var_datos()
-    let mostrar=todo.map((dato)=>{
+        
+    
+    let mostrar=recetas.map((receta)=>{
         return(
-            <Articulos nombre={dato.nombre} descripcion={dato.descripcion} cantidad={dato.cantidad} imagen={dato.imagen} valor={dato.valor} usuario={dato.usuario}/>
+            <Recetas 
+                key={String(receta._id)}
+                id = {String(receta._id)}
+                nombre={receta.nombre} 
+                categoria={receta.categoria} 
+                ingredientes={receta.ingredientes} 
+                imagen={receta.imagen} 
+                porciones={receta.porciones}
+                instrucciones={receta.instrucciones}
+                idUsuario={receta.idUsuario}
+                usuario = 'Georgie'    
+            />
         );
     })
     // <div>
@@ -38,4 +53,4 @@ const Bdmongo=()=>{
     )
 }
 
-export default Bdmongo
+export  {Bdmongo}
