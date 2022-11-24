@@ -49,6 +49,7 @@ class Recetas extends React.Component {
                         <span className="badge bg-danger rounded-pill">Categoría: {this.props.categoria}</span>
                         <br />
                         <span className="badge bg-success rounded-pill">Usuario: {this.props.usuario}</span>
+                        {/* cargar desde localsotareg el usuario */}
                         <br />
                         <span className="badge bg-primary rounded-pill">Porciones: {this.props.porciones}</span>
                         <br />

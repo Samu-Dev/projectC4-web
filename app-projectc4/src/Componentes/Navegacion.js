@@ -35,6 +35,7 @@ class Navegacion extends Component {
                     </form>
                     <div id='' className="color-red ms-5 mt-2">
                         Usuario: <p id='userName'>Mario</p>
+                        {/* localsotrage */}
                     </div>
                 </div>
 
