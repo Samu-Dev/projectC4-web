@@ -54,7 +54,7 @@ class CrearUsuario extends Component {
                     </div>
                     <div className="form-group">
                         <select name="ciudad" className="form-control mt-3" onChange={this.cambio}>
-                            <option> Selecciona tu ciudad</option>
+                            <option>---</option>
                             <option>Barranquilla</option>
                             <option>Bogotá</option>
                             <option>Medellín</option>

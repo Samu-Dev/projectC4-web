@@ -11,8 +11,7 @@ class CrearReceta extends Component {
             ingredientes: "",
             porciones: 1,
             instrucciones: "",
-            imagen: "",            
-            idUsuario: window.localStorage.getItem('id'), 
+            imagen: "", 
             
         }
         this.cambio = this.cambio.bind(this);
@@ -30,9 +29,10 @@ class CrearReceta extends Component {
     guardar() {
         console.log(this.state)
         axios.post('https://code-kitchen.onrender.com/recetas/nueva', this.state)
-            .then(console.log('RECETA CREADA'))
+            .then(alert('NUEVA RECETA CREADA'))
             .catch(console.log)            
             document.querySelector("[name='nombre']").value=""
+            console.log(document.querySelector("[name='nombre']").value)
             document.querySelector("[name='ingredientes']").value=""
             document.querySelector("[name='categoria']").value=""
             document.querySelector("[name='porciones']").value=""
@@ -45,7 +45,7 @@ class CrearReceta extends Component {
         return (
             <div className="card w-50 m-auto mt-4 mb-4 border-primary" >
                 <h1 className="m-auto text-dark mt-3">Nueva Receta</h1>
-                <h4 className="m-auto text-dark mt-3"> AUTOR: <i>{window.localStorage.getItem('nombres')}</i></h4>
+                
                 <form className="card-body">
                     <div className="form-group">
                         <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control mt-3" />
@@ -55,7 +55,8 @@ class CrearReceta extends Component {
                     </div>
                     <h6 className="text-dark mt-3 mb-0">CATEGORIA</h6>
                     <div className="form-group">
-                        <select name="categoria" className="form-control mt-1" onChange={this.cambio}>
+                        <select name="categoria" className="form-control mt-1" onChange={this.cambio} >
+                            <option >---</option>
                             <option>Entrada</option>
                             <option>Plato Fuerte</option>
                             <option>Postre</option>
