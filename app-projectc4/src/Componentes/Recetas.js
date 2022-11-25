@@ -13,7 +13,7 @@ class Recetas extends React.Component {
             porciones: 1,
             instrucciones: "",
             imagen: "",            
-            idUsuario: "123456789",
+            idUsuario: window.localStorage.getItem('id')
         }
     }
     
@@ -24,17 +24,43 @@ class Recetas extends React.Component {
         this.setState({ [nam]: val });        
     }
 
-    // editar = () => {
-    //     let id = this.props.id
-    //     axios.post(`http://localhost:5000/servicios/actualizar/${id}`)
-    // }
+    editar = () => {
+        let id = this.props.id
+        console.log(id)
+        this.setState({ 
+            'nombre': document.getElementById("nombre" + this.props.id).value,
+            'categoria': document.getElementById("categoria" + this.props.id).value,
+            'ingredientes': document.getElementById("ingredientes" + this.props.id).value,
+            'porciones': document.getElementById("porciones" + this.props.id).value,
+            'instrucciones': document.getElementById("instrucciones" + this.props.id).value,
+            'imagen': document.getElementById("imagen" + this.props.id).value,
+        })
+        console.log(this.state)
+
+        // async () => {
+        //     await axios.post(`https://code-kitchen.onrender.com/recetas/actualizar/${id}`, this.state)
+        //     .then(console.log('RECETA ACTUALIZADA'))
+        //     .catch(e => ({e}));
+        // console.log(this.state)
+        // };
+        
+        setTimeout(() => {
+            axios.post(`https://code-kitchen.onrender.com/recetas/actualizar/${id}`, this.state)
+            .then(console.log('RECETA ACTUALIZADA'))
+            .then(alert('RECETA ACTUALIZADA!'))
+            .catch(e => ({e}));
+            console.log(this.state)
+        }, 2000);
+        // window.location.reload(false)
+    }
 
     eliminar = (e) => {
-        let direccion = `http://localhost:5000/servicios/borrar/${e.target.name}` 
+        let direccion = `https://code-kitchen.onrender.com/recetas/borrar/${e.target.name}` 
         axios.get(direccion)
-            .then(dato => console.log("borrado " + e.target.name))
-            .catch(e => ({e}));
-        window.location.reload(false)  
+        .then(console.log("borrado " + e.target.name))
+        .then(alert('RECETA BORRADA!'))
+        .catch(e => ({e}));
+        // window.location.reload(false)  
     }
 
     render() {
@@ -48,8 +74,8 @@ class Recetas extends React.Component {
                         <h5 className="card-title text-dark mt-3">{this.props.nombre}</h5>
                         <span className="badge bg-danger rounded-pill">Categoría: {this.props.categoria}</span>
                         <br />
-                        <span className="badge bg-success rounded-pill">Usuario: {this.props.usuario}</span>
-                        {/* cargar desde localsotareg el usuario */}
+                        <span className="badge bg-success rounded-pill">Usuario: {window.localStorage.getItem('nombres')}</span>
+                        {/* cargar desde localstorage el usuario */}
                         <br />
                         <span className="badge bg-primary rounded-pill">Porciones: {this.props.porciones}</span>
                         <br />
@@ -69,20 +95,20 @@ class Recetas extends React.Component {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <p className="text-dark">{this.props.id}</p>
+                                <p className="text-dark">ID: {this.props.id}</p>
                                 <form>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start">Titulo Receta</label>
-                                        <input type="text" className="form-control" id="recipient-name" name="nombre" defaultValue={this.props.nombre} onChange={this.cambio}/>
+                                        <input type="text" className="form-control" id={"nombre" + this.props.id} name="nombre" defaultValue={this.props.nombre} onChange={this.cambio} data-editar="nombre" />
                                     </div>;
                                     <div className="mb-1">
                                         <label htmlFor="message-text" className="col-form-label text-dark text-st" >Ingredientes</label>
-                                        <textarea className="form-control" id="message-text" name="ingredientes" defaultValue={this.props.ingredientes} onChange={this.cambio}></textarea>
+                                        <textarea className="form-control" id={"ingredientes" + this.props.id} name="ingredientes" defaultValue={this.props.ingredientes} onChange={this.cambio} ></textarea>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start" >Categoría</label>
                                         <div className="form-group">
-                                            <select className="form-control" name="categoria" defaultValue={this.props.categoria} onChange={this.cambio}>
+                                            <select className="form-control" id={"categoria" + this.props.id} name="categoria" defaultValue={this.props.categoria} onChange={this.cambio}>
                                                 <option>Entrada</option>
                                                 <option>Plato Fuerte</option>
                                                 <option>Postre</option>
@@ -91,22 +117,22 @@ class Recetas extends React.Component {
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start" >Porciones</label>
-                                        <input type="number" className="form-control" id="recipient-name" name='porciones' defaultValue={this.props.porciones} onChange={this.cambio}/>
+                                        <input type="number" className="form-control" id={"porciones" + this.props.id} name='porciones' defaultValue={this.props.porciones} onChange={this.cambio}/>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="message-text" className="col-form-label text-dark text-st" >Instrucciones</label>
-                                        <textarea className="form-control" id="message-text" name="instrucciones" defaultValue={this.props.instrucciones} onChange={this.cambio}></textarea>
+                                        <textarea className="form-control" id={"instrucciones" + this.props.id} name="instrucciones" defaultValue={this.props.instrucciones} onChange={this.cambio}></textarea>
                                     </div>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start">URL Imagen</label>
-                                        <input type="text" className="form-control" id="recipient-name" name='imagen' defaultValue={this.props.imagen} onChange={this.cambio}/>
+                                        <input type="text" className="form-control" id={"imagen" + this.props.id} name='imagen' defaultValue={this.props.imagen} onChange={this.cambio}/>
                                     </div>
 
                                 </form>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" className="btn btn-success" name={this.props.id} onClick={this.editar}>Guardar</button>
+                                <button type="submit" className="btn btn-success" name={this.props.id} onClick={this.editar}>Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -121,11 +147,11 @@ class Recetas extends React.Component {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body text-dark">
-                                Desea eliminar la receta {this.props.nombre}, serial: {this.props.id}?
+                                Desea eliminar la receta <b>{this.props.nombre}</b>?
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" className="btn btn-danger" onClick={this.eliminar} name={this.props.id} data-nombre={this.props.nombre} >Eliminar</button>
+                                <button type="submit" className="btn btn-danger" onClick={this.eliminar} name={this.props.id} data-nombre={this.props.nombre} >Eliminar</button>
                             </div>
                         </div>
                     </div>

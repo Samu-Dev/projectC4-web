@@ -8,12 +8,11 @@ class CrearReceta extends Component {
         this.state = {            
             nombre: "",
             categoria: "",
-            // usuario: "",
             ingredientes: "",
             porciones: 1,
             instrucciones: "",
             imagen: "",            
-            idUsuario: "123456789", 
+            idUsuario: window.localStorage.getItem('id'), 
             
         }
         this.cambio = this.cambio.bind(this);
@@ -27,11 +26,10 @@ class CrearReceta extends Component {
         this.setState({ [nam]: val });
         console.log(this.state)
     }
-    
-    
 
     guardar() {
-        axios.post('http://localhost:5000/servicios/nueva', this.state)
+        console.log(this.state)
+        axios.post('https://code-kitchen.onrender.com/recetas/nueva', this.state)
             .then(console.log('RECETA CREADA'))
             .catch(console.log)            
             document.querySelector("[name='nombre']").value=""
@@ -47,7 +45,7 @@ class CrearReceta extends Component {
         return (
             <div className="card w-50 m-auto mt-4 mb-4 border-primary" >
                 <h1 className="m-auto text-dark mt-3">Nueva Receta</h1>
-                <h4 className="m-auto text-dark mt-3"> AUTOR: <i>Mario</i></h4>
+                <h4 className="m-auto text-dark mt-3"> AUTOR: <i>{window.localStorage.getItem('nombres')}</i></h4>
                 <form className="card-body">
                     <div className="form-group">
                         <input type="text" placeholder="Título Receta" name="nombre" onChange={this.cambio} className="form-control mt-3" />
