@@ -7,14 +7,10 @@ const Bdmongo=()=>{
     
     const [recetas,setRecetas]=useState([])
     useEffect(()=>{
-        axios.get('http://localhost:5000/servicios/recetas')
+        axios.get('https://code-kitchen.onrender.com/recetas')
             .then(res=>setRecetas(res.data))
             .catch(e => ({e}))
     })
-    
-        
-
-        
     
     let mostrar=recetas.map((receta)=>{
         return(
@@ -27,25 +23,12 @@ const Bdmongo=()=>{
                 imagen={receta.imagen} 
                 porciones={receta.porciones}
                 instrucciones={receta.instrucciones}
-                idUsuario={receta.idUsuario}
-                usuario = 'Georgie'    
+                idUsuario={window.localStorage.getItem('id')}
+                usuario = {window.localStorage.getItem('nombres')}    
             />
         );
     })
-    // <div>
-            
-    //         {todo.map(dato=>{
-    //             return (
-    //                 <Articulos nombre={dato.nombre} descripcion={dato.descripcion} cantidad={dato.cantidad} imagen={dato.imagen} valor={dato.valor} usuario={dato.usuario}/>
-    //                 // <article className="coaster-card">
-    //                 //     <h1>{eachtodo.nombre}</h1>
-    //                 // </article>
-    //             )
-    //         })}
-    //     </div>
-
     
-    //console.log(todo)
     return(
         <div className="row">
             {mostrar}

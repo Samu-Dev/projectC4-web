@@ -7,6 +7,20 @@ import { Home } from "./Home.js";
 import {Bdmongo} from "./Bdmongo.js"
 
 class Navegacion extends Component {     
+    
+    
+    usuarioLogueado = () => {
+        if (window.localStorage['nombres']){
+            return <div id='' className="color-red ms-5 mt-2">
+                    Usuario: {window.localStorage.getItem('nombres')}
+                    <button type='button' className='btn btn-danger' onClick={window.localStorage.clear()}>Cerrar Sesión</button>                        
+            </div>
+        }else{
+            return <div id='' className="color-red ms-5 mt-2">
+                    Por favor inicia sesión                        
+            </div>
+        }
+    }
     render() {
         return (
             <div className="bg-light mt-5 mb-5">
@@ -33,10 +47,7 @@ class Navegacion extends Component {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-danger" type="submit">Search</button>
                     </form>
-                    <div id='' className="color-red ms-5 mt-2">
-                        Usuario: <p id='userName'>Mario</p>
-                        {/* localsotrage */}
-                    </div>
+                    {this.usuarioLogueado()}
                 </div>
 
                 <div className="tab-content" id="myTabContent">
@@ -51,7 +62,7 @@ class Navegacion extends Component {
                         />                        
                     </div>
                     <div className="tab-pane fade text-white" id="enlace4" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
-                        <CrearUsuario />
+                        <CrearUsuario/>
                     </div>
                     <div className="tab-pane fade text-white" id="enlace5" role="tabpanel" aria-labelledby="disabled-tab" tabIndex="0">
                         <InicioSesion />
