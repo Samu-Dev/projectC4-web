@@ -1,6 +1,5 @@
 import './componentes.css';
 import React, {Component} from "react";
-import {Cargar} from "./Cargar";
 import { CrearUsuario } from "./CrearUsuario";
 import { CrearReceta } from "./CrearReceta";
 import { InicioSesion } from "./InicioSesion";
