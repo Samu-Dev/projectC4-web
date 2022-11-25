@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+
 class Recetas extends React.Component {
     constructor() {
         super();
@@ -12,8 +13,7 @@ class Recetas extends React.Component {
             ingredientes: "",
             porciones: 1,
             instrucciones: "",
-            imagen: "",            
-            idUsuario: window.localStorage.getItem('id')
+            imagen: ""
         }
     }
     
@@ -82,6 +82,8 @@ class Recetas extends React.Component {
 
                         <button className="btn btn-primary border mx-auto me-2 mt-1" data-bs-toggle="modal" data-bs-target={"#editar_cuadro" + this.props.id} >Editar</button>
                         <button className="btn btn-danger border mx-auto mt-1 me-2" data-bs-toggle="modal" data-bs-target={"#receta" + this.props.id}>Eliminar</button>
+                        <button className="btn btn-success border mx-auto mt-1 me-2" data-bs-toggle="modal" data-bs-target={"#ver_receta" + this.props.id}>Ver</button>
+
                     </div>
                 </div>
 
@@ -95,7 +97,6 @@ class Recetas extends React.Component {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <p className="text-dark">ID: {this.props.id}</p>
                                 <form>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start">Titulo Receta</label>
@@ -156,7 +157,33 @@ class Recetas extends React.Component {
                         </div>
                     </div>
                 </div>
-                
+
+                {/* Ver */}
+                <div className="modal fade" id={"ver_receta" + this.props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h1 className="fs-5 text-dark" id="exampleModalLabel">{this.props.nombre}</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                <img  height="200" width="auto" src={this.props.imagen}></img>
+                                <caption className="d-flex align-items-stretch">
+                                    <p className="ms-5 text-dark"><strong> Categoría:</strong> <span className="ms-1 text-decoration-underline"> {this.props.categoria}</span></p>
+                                    <p className="ms-4 text-dark"><strong> Porciones:</strong> <span className="ms-1 text-decoration-underline"> {this.props.porciones}</span> </p>
+                                </caption>
+                                <br/>
+                                <h3>Ingredientes</h3>
+                                <p className="text-dark ms-4 me-4">{this.props.ingredientes}</p><br/>
+                                <h3>Instrucciones</h3>
+                                <p className="text-dark ms-4 me-4">{this.props.instrucciones}</p><br/>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
             </div>
 
 

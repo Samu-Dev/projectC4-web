@@ -8,6 +8,17 @@ import { Team } from './Team.js';
 import {Bdmongo} from "./Bdmongo.js"
 
 class Navegacion extends Component{
+    usuarioLogueado = () => {
+        if (window.localStorage['nombres']){
+            return <div id='' className="color-red ms-5 mt-2">
+                    Usuario: {window.localStorage.getItem('nombres')}
+                    <button type='button' className='btn btn-danger' onClick={window.localStorage.clear()}>Cerrar Sesión</button>                        
+            </div>
+        }else{
+            return <div id='' className="color-red ms-5 mt-2">
+                    Por favor inicia sesión </div>
+            }
+        }
     render(){
         return(
             <div className="bg-light mt-5 mb-5">
@@ -38,7 +49,7 @@ class Navegacion extends Component{
                             <button className="btn btn-outline-danger" type="submit">Search</button>
                     </form>
                     <div className="color-red ms-5 mt-2">
-                        Usuario: User
+                        {this.usuarioLogueado()}
                     </div>
                 </div>
 

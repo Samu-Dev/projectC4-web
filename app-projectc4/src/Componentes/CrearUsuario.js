@@ -52,9 +52,9 @@ class CrearUsuario extends Component {
                     <div className="form-group">
                         <input type="number" placeholder="Edad" name="edad" className="form-control mt-3" onChange={this.cambio} />
                     </div>
-                    <h5 className="text-dark mt-2 ms-2">Ciudad</h5>
                     <div className="form-group">
                         <select name="ciudad" className="form-control mt-3" onChange={this.cambio}>
+                            <option> Selecciona tu ciudad</option>
                             <option>Barranquilla</option>
                             <option>Bogotá</option>
                             <option>Medellín</option>
