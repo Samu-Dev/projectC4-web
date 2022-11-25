@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+
 class Recetas extends React.Component {
     constructor() {
         super();
@@ -11,7 +12,7 @@ class Recetas extends React.Component {
             ingredientes: "",
             porciones: 1,
             instrucciones: "",
-            imagen: "",
+            imagen: ""
         }
     }
     
@@ -68,6 +69,8 @@ class Recetas extends React.Component {
                         <br />
                         <button className="btn btn-primary border mx-auto me-2 mt-1" data-bs-toggle="modal" data-bs-target={"#editar_cuadro" + this.props.id} >Editar</button>
                         <button className="btn btn-danger border mx-auto mt-1 me-2" data-bs-toggle="modal" data-bs-target={"#receta" + this.props.id}>Eliminar</button>
+                        <button className="btn btn-success border mx-auto mt-1 me-2" data-bs-toggle="modal" data-bs-target={"#ver_receta" + this.props.id}>Ver</button>
+
                     </div>
                 </div>
 
@@ -80,7 +83,8 @@ class Recetas extends React.Component {
                                 <h1 className="modal-title fs-5 text-dark" id="exampleModalLabel">Editar Receta</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div className="modal-body">                                
+                            <div className="modal-body">
+                                <p className="text-dark">ID: {this.props.id}</p>
                                 <form>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start">Titulo Receta</label>
@@ -140,7 +144,8 @@ class Recetas extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
+                
             </div>
 
 

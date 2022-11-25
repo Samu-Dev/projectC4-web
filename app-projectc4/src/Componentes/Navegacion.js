@@ -7,23 +7,10 @@ import { Home } from "./Home.js";
 import { Team } from './Team.js';
 import { Bdmongo } from "./Bdmongo.js"
 
-class Navegacion extends Component {
 
-    usuarioLogueado = () => {
-        if (window.localStorage['nombres']) {
-            return <div id='' className="color-red ms-5 mt-2">
-                Usuario: {window.localStorage.getItem('nombres')}
-                <button type='button' className='btn btn-danger' onClick={window.localStorage.clear()}>Cerrar Sesión</button>
-            </div>
-        } else {
-            return <div id='' className="color-red ms-5 mt-2">
-                Por favor inicia sesión
-            </div>
-        }
-    }
-
-    render() {
-        return (
+class Navegacion extends Component{
+    render(){
+        return(
             <div className="bg-light mt-5 mb-5">
                 <div className="nav navbar-expand-lg pt-3 pb-3 ms-5">
                     <ul className="nav nav-tabs nav-pills" id="myTab" role="tablist">
@@ -44,19 +31,8 @@ class Navegacion extends Component {
                         </li>
                         <li className="nav-item" role="presentation">
                             <button className="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#enlace6" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">{this.props.enlace6}</button>
-                        </li>
-                        <li className="nav-item" role="presentation">
-                            <div className="color-red ms-5 mt-2">
-                                {this.usuarioLogueado()}
-                            </div>
-                        </li>
+                        </li>                        
                     </ul>
-                    {/* <form className="d-flex ms-5" role="search">
-                        <input id="barraBusqueda" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-danger" data-bs-toggle="tab" type="button" data-bs-target="#enlace7">Search</button>
-                    </form> */}
-
-
                 </div>
 
                 <div className="tab-content" id="myTabContent">
