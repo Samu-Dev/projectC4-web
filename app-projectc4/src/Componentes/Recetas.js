@@ -8,12 +8,10 @@ class Recetas extends React.Component {
         this.state = {
             nombre: "",
             categoria: "",
-            // usuario: "",
             ingredientes: "",
             porciones: 1,
             instrucciones: "",
-            imagen: "",            
-            idUsuario: window.localStorage.getItem('id')
+            imagen: "",
         }
     }
     
@@ -33,17 +31,10 @@ class Recetas extends React.Component {
             'ingredientes': document.getElementById("ingredientes" + this.props.id).value,
             'porciones': document.getElementById("porciones" + this.props.id).value,
             'instrucciones': document.getElementById("instrucciones" + this.props.id).value,
-            'imagen': document.getElementById("imagen" + this.props.id).value,
+            'imagen': document.getElementById("imagen" + this.props.id).value            
         })
         console.log(this.state)
 
-        // async () => {
-        //     await axios.post(`https://code-kitchen.onrender.com/recetas/actualizar/${id}`, this.state)
-        //     .then(console.log('RECETA ACTUALIZADA'))
-        //     .catch(e => ({e}));
-        // console.log(this.state)
-        // };
-        
         setTimeout(() => {
             axios.post(`https://code-kitchen.onrender.com/recetas/actualizar/${id}`, this.state)
             .then(console.log('RECETA ACTUALIZADA'))
@@ -51,16 +42,15 @@ class Recetas extends React.Component {
             .catch(e => ({e}));
             console.log(this.state)
         }, 2000);
-        // window.location.reload(false)
     }
 
     eliminar = (e) => {
         let direccion = `https://code-kitchen.onrender.com/recetas/borrar/${e.target.name}` 
         axios.get(direccion)
         .then(console.log("borrado " + e.target.name))
-        .then(alert('RECETA BORRADA!'))
+        .then(alert(`La receta ha sido borrada!`))
         .catch(e => ({e}));
-        // window.location.reload(false)  
+        window.location.reload(false)  
     }
 
     render() {
@@ -74,12 +64,8 @@ class Recetas extends React.Component {
                         <h5 className="card-title text-dark mt-3">{this.props.nombre}</h5>
                         <span className="badge bg-danger rounded-pill">Categoría: {this.props.categoria}</span>
                         <br />
-                        <span className="badge bg-success rounded-pill">Usuario: {window.localStorage.getItem('nombres')}</span>
-                        {/* cargar desde localstorage el usuario */}
-                        <br />
                         <span className="badge bg-primary rounded-pill">Porciones: {this.props.porciones}</span>
                         <br />
-
                         <button className="btn btn-primary border mx-auto me-2 mt-1" data-bs-toggle="modal" data-bs-target={"#editar_cuadro" + this.props.id} >Editar</button>
                         <button className="btn btn-danger border mx-auto mt-1 me-2" data-bs-toggle="modal" data-bs-target={"#receta" + this.props.id}>Eliminar</button>
                     </div>
@@ -94,8 +80,7 @@ class Recetas extends React.Component {
                                 <h1 className="modal-title fs-5 text-dark" id="exampleModalLabel">Editar Receta</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div className="modal-body">
-                                <p className="text-dark">ID: {this.props.id}</p>
+                            <div className="modal-body">                                
                                 <form>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start">Titulo Receta</label>
@@ -155,8 +140,7 @@ class Recetas extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
             </div>
 
 

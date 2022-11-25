@@ -22,9 +22,7 @@ const Bdmongo=()=>{
                 ingredientes={receta.ingredientes} 
                 imagen={receta.imagen} 
                 porciones={receta.porciones}
-                instrucciones={receta.instrucciones}
-                idUsuario={window.localStorage.getItem('id')}
-                usuario = {window.localStorage.getItem('nombres')}    
+                instrucciones={receta.instrucciones}  
             />
         );
     })
