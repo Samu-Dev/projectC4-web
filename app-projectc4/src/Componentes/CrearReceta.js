@@ -12,7 +12,7 @@ class CrearReceta extends Component {
             porciones: 1,
             instrucciones: "",
             imagen: "",            
-            idUsuario: window.localStorage.getItem('id'), 
+            idUsuario: "window.localStorage.getItem('id')", 
             
         }
         this.cambio = this.cambio.bind(this);
