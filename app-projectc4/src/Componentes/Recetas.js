@@ -84,7 +84,7 @@ class Recetas extends React.Component {
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <p className="text-dark">ID: {this.props.id}</p>
+                                
                                 <form>
                                     <div className="mb-1">
                                         <label htmlFor="recipient-name" className="col-form-label text-dark text-start">Titulo Receta</label>
